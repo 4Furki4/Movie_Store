@@ -1,5 +1,9 @@
 using System.Linq;
 using AutoMapper;
+using MovieStore.Applications.CastOperations.Command.CreateCast;
+using MovieStore.Applications.DirectorOperations.Command.CreateDirector;
+using MovieStore.Applications.GenreOperations.Command.CreateGenre;
+using MovieStore.Applications.MovieOperations.Command.CreateMovie;
 using MovieStore.Applications.MovieOperations.Query.GetMovie;
 using MovieStore.Applications.MovieOperations.Query.GetMovieDetail;
 using MovieStore.Entities;
@@ -17,7 +21,11 @@ namespace MovieStore.Common
             CreateMap<Movie, MovieDetailViewModel>().
             ForMember(dest=>dest.Director,opt=>opt.MapFrom(src=>src.Director.Name+" "+ src.Director.Surname))
             .ForMember(dest=>dest.Casts,opt=>opt.MapFrom(src=>src.MovieCasts.Select(x=>x.Cast.Name+" "+x.Cast.Surname)))
-            .ForMember(dest=>dest.Genres,opt=>opt.MapFrom(src=>src.MovieGenres.Select(x=>x.Genre.Name+" "+x.Genre.Name)));
+            .ForMember(dest=>dest.Genres,opt=>opt.MapFrom(src=>src.MovieGenres.Select(x=>x.Genre.Name)));
+            CreateMap<MovieCastModel,MovieCast>();
+            CreateMap<MovieGenreModel,MovieGenre>();
+            CreateMap<CreateDirectorModel,Director>();
+            CreateMap<CreateMovieModel,Movie>();
         }
     }
 }

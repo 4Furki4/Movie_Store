@@ -72,7 +72,7 @@ namespace MovieStore.DbOperations
             new MovieGenre(){GenreId=4, MovieId=1},
             new MovieGenre(){GenreId=3, MovieId=1},
             new MovieGenre(){GenreId=1, MovieId=2},
-            new MovieGenre(){GenreId=4, MovieId=2},
+            new MovieGenre(){GenreId=4, MovieId=2}
         };
     }
 }
