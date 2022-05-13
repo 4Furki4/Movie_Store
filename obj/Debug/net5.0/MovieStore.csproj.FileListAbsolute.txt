@@ -34,3 +34,4 @@ C:\Users\gs-60\OneDrive\Masaüstü\Yazılım\Projeler\MovieStore\obj\Debug\net5.
 C:\Users\gs-60\OneDrive\Masaüstü\Yazılım\Projeler\MovieStore\obj\Debug\net5.0\ref\MovieStore.dll
 C:\Users\gs-60\OneDrive\Masaüstü\Yazılım\Projeler\MovieStore\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\gs-60\OneDrive\Masaüstü\Yazılım\Projeler\MovieStore\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\gs-60\OneDrive\Masaüstü\Yazılım\Projeler\MovieStore\bin\Debug\net5.0\Newtonsoft.Json.dll

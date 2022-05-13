@@ -1,6 +1,7 @@
 using System.Linq;
 using AutoMapper;
 using MovieStore.Applications.CastOperations.Command.CreateCast;
+using MovieStore.Applications.CustomerOperations.Command.CreateCustomer;
 using MovieStore.Applications.DirectorOperations.Command.CreateDirector;
 using MovieStore.Applications.GenreOperations.Command.CreateGenre;
 using MovieStore.Applications.MovieOperations.Command.CreateMovie;
@@ -26,6 +27,8 @@ namespace MovieStore.Common
             CreateMap<MovieGenreModel,MovieGenre>();
             CreateMap<CreateDirectorModel,Director>();
             CreateMap<CreateMovieModel,Movie>();
+
+            CreateMap<CreateCustomerModel,Customer>();
         }
     }
 }
