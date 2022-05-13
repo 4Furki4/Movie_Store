@@ -14,6 +14,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MovieStore.DbOperations;
+using MovieStore.MiddleWares;
+using MovieStore.Services;
 
 namespace MovieStore
 {
@@ -36,9 +38,10 @@ namespace MovieStore
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MovieStore", Version = "v1" });
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IMovieStoreDbContext>(provider=>provider.GetService<MovieStoreDbContext>());
             services.AddDbContext<MovieStoreDbContext>(options=>options.UseInMemoryDatabase(databaseName:"MovieDb"));
+            services.AddSingleton<ILoggerService,ConsoleLogger>();
         }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -54,11 +57,13 @@ namespace MovieStore
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseCustomException();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
         }
+        
     }
 }
