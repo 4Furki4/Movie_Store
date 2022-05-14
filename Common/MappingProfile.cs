@@ -18,17 +18,29 @@ namespace MovieStore.Common
             CreateMap<Movie,MovieModel>()
             .ForMember(dest=>dest.Director,opt=>opt.MapFrom(src=>src.Director.Name+" "+ src.Director.Surname)) //MovieModel'de Yönetmen Movie nesnemizden yönlendirildi.
             .ForMember(dest=>dest.Casts,opt=>opt.MapFrom(src=>src.MovieCasts.Select(x=>x.Cast.Name +" "+ x.Cast.Surname))) // Include ile dahil ettiğimiz MovieCastten Oyuncunun ismi ve soyismi yönlendirildi.
-            .ForMember(dest=>dest.Genres,opt=>opt.MapFrom(src=>src.MovieGenres.Select(x=>x.Genre.Name))); // Yukardakinin aynısı.
+            .ForMember(dest=>dest.Genres,opt=>opt.MapFrom(src=>src.MovieGenres.Select(x=>x.Genre.Name)));
+            
+            //GetMovieDetail Mapping
             CreateMap<Movie, MovieDetailViewModel>().
             ForMember(dest=>dest.Director,opt=>opt.MapFrom(src=>src.Director.Name+" "+ src.Director.Surname))
             .ForMember(dest=>dest.Casts,opt=>opt.MapFrom(src=>src.MovieCasts.Select(x=>x.Cast.Name+" "+x.Cast.Surname)))
             .ForMember(dest=>dest.Genres,opt=>opt.MapFrom(src=>src.MovieGenres.Select(x=>x.Genre.Name)));
+
+            //MovieCast ve MovieGenre ortak sınıflarının maplenmesi
             CreateMap<MovieCastModel,MovieCast>();
             CreateMap<MovieGenreModel,MovieGenre>();
+
             CreateMap<CreateDirectorModel,Director>();
+
             CreateMap<CreateMovieModel,Movie>();
 
-            CreateMap<CreateCustomerModel,Customer>();
+            //Yeni bir müşteri oluştururken olası gereksiz boşlukları(whitespaceleri) kaldırıp mapliyoruz.
+            CreateMap<CreateCustomerModel,Customer>()
+            .ForMember(dest=>dest.E_Mail,opt=>opt.MapFrom(src=>src.E_Mail.Trim())) 
+            .ForMember(dest=>dest.Name,opt=>opt.MapFrom(src=>src.Name.Trim()))
+            .ForMember(dest=>dest.Surname,opt=>opt.MapFrom(src=>src.Surname.Trim()))
+            .ForMember(dest=>dest.Password,opt=>opt.MapFrom(src=>src.Password.Trim())); 
+            
         }
     }
 }

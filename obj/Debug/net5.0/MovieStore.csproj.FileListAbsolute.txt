@@ -35,3 +35,10 @@ C:\Users\gs-60\OneDrive\Masaüstü\Yazılım\Projeler\MovieStore\obj\Debug\net5.
 C:\Users\gs-60\OneDrive\Masaüstü\Yazılım\Projeler\MovieStore\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\gs-60\OneDrive\Masaüstü\Yazılım\Projeler\MovieStore\bin\Debug\net5.0\FluentValidation.dll
 C:\Users\gs-60\OneDrive\Masaüstü\Yazılım\Projeler\MovieStore\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\gs-60\OneDrive\Masaüstü\Yazılım\Projeler\MovieStore\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\gs-60\OneDrive\Masaüstü\Yazılım\Projeler\MovieStore\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\gs-60\OneDrive\Masaüstü\Yazılım\Projeler\MovieStore\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\gs-60\OneDrive\Masaüstü\Yazılım\Projeler\MovieStore\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\gs-60\OneDrive\Masaüstü\Yazılım\Projeler\MovieStore\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\gs-60\OneDrive\Masaüstü\Yazılım\Projeler\MovieStore\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\gs-60\OneDrive\Masaüstü\Yazılım\Projeler\MovieStore\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
