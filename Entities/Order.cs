@@ -9,7 +9,7 @@ namespace MovieStore.Entities
         public int OrderId { get; set; }
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
-        public List<Movie> Movie { get; set; }
+        public List<Movie> Movies { get; set; }
         public int Price { get; set; }
     }
 }
