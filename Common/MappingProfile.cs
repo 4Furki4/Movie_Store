@@ -7,6 +7,7 @@ using MovieStore.Applications.GenreOperations.Command.CreateGenre;
 using MovieStore.Applications.MovieOperations.Command.CreateMovie;
 using MovieStore.Applications.MovieOperations.Query.GetMovie;
 using MovieStore.Applications.MovieOperations.Query.GetMovieDetail;
+using MovieStore.Applications.OrderOperations.Query.GetOrders;
 using MovieStore.Entities;
 
 namespace MovieStore.Common
@@ -41,6 +42,9 @@ namespace MovieStore.Common
             .ForMember(dest=>dest.Surname,opt=>opt.MapFrom(src=>src.Surname.Trim()))
             .ForMember(dest=>dest.Password,opt=>opt.MapFrom(src=>src.Password.Trim())); 
             
+            CreateMap<Order,OrderViewModel>()
+            .ForMember(dest=>dest.Customer,opt=>opt.MapFrom(src=>src.Customer.Name +" "+src.Customer.Surname))
+            .ForMember(dest=>dest.MovieNames,opt=>opt.MapFrom(src=>src.Movies.Select(mv=>mv.MovieName)));
         }
     }
 }

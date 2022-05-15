@@ -1,7 +1,9 @@
+using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MovieStore.Applications.OrderOperations.Command.CreateOrder;
+using MovieStore.Applications.OrderOperations.Query.GetOrders;
 using MovieStore.DbOperations;
 
 namespace MovieStore.Controllers
@@ -12,9 +14,11 @@ namespace MovieStore.Controllers
     public class OrderController : ControllerBase
     {
         private readonly MovieStoreDbContext context;
-        public OrderController(MovieStoreDbContext context)
+        private readonly IMapper mapper;
+        public OrderController(MovieStoreDbContext context, IMapper mapper)
         {
             this.context = context;
+            this.mapper = mapper;
         }
 
         [HttpPost]
@@ -26,6 +30,14 @@ namespace MovieStore.Controllers
             validations.Validate(command,opt=>opt.ThrowOnFailures());
             command.Handler();
             return Ok();
+        }
+        [HttpGet]
+        public ActionResult ListOrders()
+        {
+            GetOrdersQuery query = new(context,mapper);
+            var result = query.Handler();
+            return Ok(result);
+
         }
     }
 }

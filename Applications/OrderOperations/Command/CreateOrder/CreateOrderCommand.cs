@@ -27,14 +27,14 @@ namespace MovieStore.Applications.OrderOperations.Command.CreateOrder
             List<Movie> movies = new List<Movie>();
             Model.MovieIds.ForEach(delegate(int Id)
             {
-                movies = context.Movies.Where(mov=>mov.MovieId==Id).ToList();
+                var movie = context.Movies.SingleOrDefault(mov=>mov.MovieId==Id);
+                movies.Add(movie);
             });
             int totalPice=0;
-            movies.ForEach(delegate(Movie movie)
+            foreach (var movie in movies)
             {
                 totalPice+=movie.Price;
-            });
-            
+            }
             Order order = new Order
             {
                 CustomerId=customer.Id,
